@@ -1,11 +1,12 @@
 package com.school;
 
 public class Student {
+    private static int nextStudentIdCounter = 1;
     int studentId;
     String name;
 
-    public void setDetails(int id, String studentName) {
-        this.studentId = id; // using 'this' for clarity
+    Student (String studentName) {
+        this.studentId = nextStudentIdCounter++;
         this.name = studentName;
     }
 
