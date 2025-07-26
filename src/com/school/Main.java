@@ -33,7 +33,7 @@ public class Main {
         }
         System.out.println("\nSession 2: Core Domain Modelling Complete.");
         System.out.println("\nSession 3: Constructor and Auto-ID generator completed.");
-        System.out.println("\nSession 4: Attendance Recording System Initialized.");
+        System.out.println("\nSession 4: Data Encapsulation & Attendance Recording Validation");
         System.out.println("\nSession 5: Implement inheritance hierarchy for Person, Student, Teacher, Staff");
 
         String[] status = {"Present", "Absent", "Late"};
@@ -42,10 +42,11 @@ public class Main {
         for(int i=0; i<status.length; i++) {
             attendanceLog.add(new AttendanceRecord(persons[i].getId(), courses[i].getCourseId(), status[i]));
         }
+
+        System.out.println("\nAttendance Logs ---");
         for(AttendanceRecord record: attendanceLog){
             record.displayDetails();
         }
 
-        System.out.println("\nSession 4: Data Encapsulation & Attendance Recording Validation");
     }
 }
