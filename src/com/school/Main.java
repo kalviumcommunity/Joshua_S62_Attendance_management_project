@@ -11,9 +11,10 @@ public class Main {
         courses[2] = new Course("New Course");
         
         Person[] persons = new Person[10];
-        persons[0] = new Student("Alice Wonderland", "1");
-        persons[1] = new Student("Bob The Builder", "6");
-        persons[2] = new Student("New Student", "10");
+        Student[] students = new Student[3];
+        students[0] = new Student("Alice Wonderland", "1");
+        students[1] = new Student("Bob The Builder", "6");
+        students[2] = new Student("New Student", "10");
 
         persons[3] = new Teacher("Mr. Smith", "Mathematics");
         persons[4] = new Teacher("Ms. Johnson", "Computer Science");
@@ -40,13 +41,17 @@ public class Main {
 
         List<AttendanceRecord> attendanceLog = new ArrayList<>();
         for(int i=0; i<status.length; i++) {
-            attendanceLog.add(new AttendanceRecord(persons[i].getId(), courses[i].getCourseId(), status[i]));
+            if(persons[i]!=null)attendanceLog.add(new AttendanceRecord(persons[i].getId(), courses[i].getCourseId(), status[i]));
         }
+
+        FileStorageService newFile = new FileStorageService();
 
         System.out.println("\nAttendance Logs ---");
         for(AttendanceRecord record: attendanceLog){
             record.displayDetails();
         }
-
+        newFile.saveData(attendanceLog, "attendance_log.txt");
+        newFile.saveData(Arrays.asList(students), "students_log.txt");
+        newFile.saveData(Arrays.asList(courses), "courses_log.txt");
     }
 }
