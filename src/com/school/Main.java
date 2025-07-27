@@ -39,9 +39,9 @@ public class Main {
 
         String[] status = {"Present", "Absent", "Late"};
 
-        List<AttendanceRecord> attendanceLog = new ArrayList<>();
+        AttendanceRecord[] attendanceLog = new AttendanceRecord[status.length];
         for(int i=0; i<status.length; i++) {
-            if(persons[i]!=null)attendanceLog.add(new AttendanceRecord(persons[i].getId(), courses[i].getCourseId(), status[i]));
+            if(students[i]!=null && courses[i]!=null)attendanceLog[i] = new AttendanceRecord(students[i].getId(), courses[i].getCourseId(), status[i]);
         }
 
         FileStorageService newFile = new FileStorageService();
@@ -50,7 +50,7 @@ public class Main {
         for(AttendanceRecord record: attendanceLog){
             record.displayDetails();
         }
-        newFile.saveData(attendanceLog, "attendance_log.txt");
+        newFile.saveData(Arrays.asList(attendanceLog), "attendance_log.txt");
         newFile.saveData(Arrays.asList(students), "students_log.txt");
         newFile.saveData(Arrays.asList(courses), "courses_log.txt");
     }

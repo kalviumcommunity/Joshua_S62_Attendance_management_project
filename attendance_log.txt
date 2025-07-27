@@ -1,0 +1,3 @@
+Attendance Record - Student ID: 1, Course ID: 101, Status: Present
+Attendance Record - Student ID: 2, Course ID: 102, Status: Absent
+Attendance Record - Student ID: 3, Course ID: 103, Status: invalid
